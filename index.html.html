@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffe9ee">
+<title>Sana küçük bir teklifim var 💌</title>
+
+<!-- =====================================================
+     ✏️ BURAYI DEĞİŞTİR
+     PHONE: WhatsApp numaran. Ülke koduyla, başında + ve boşluk OLMADAN.
+            Örnek (Türkiye): 905321234567
+     HER_NAME: Kızın adı (boş bırakabilirsin, boşsa gösterilmez)
+     ===================================================== -->
+<script>
+const CONFIG = {
+  PHONE: "905488100273",
+  HER_NAME: "Selin"
+};
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff8fab;
+  --pink-d:#ee5c82;
+  --pink-l:#ffd6e0;
+  --blush:#ffeef2;
+  --cream:#fff8f1;
+  --ink:#4a2f3a;
+  --muted:#936f7d;
+  --line:#f6d3dc;
+  --radius:28px;
+  --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans:'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:
+    radial-gradient(900px 600px at 10% -10%, #ffe0e8 0%, transparent 60%),
+    radial-gradient(800px 600px at 110% 20%, #ffeadb 0%, transparent 55%),
+    radial-gradient(900px 700px at 40% 120%, #ffd9e4 0%, transparent 60%),
+    var(--cream);
+  background-attachment:fixed;
+  min-height:100vh;
+  min-height:100dvh;
+  overflow-x:hidden;
+}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;touch-action:manipulation}
+
+/* ---------- Arka plan kalpleri ---------- */
+#bg-hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+#bg-hearts span{
+  position:absolute;bottom:-60px;
+  animation:rise linear infinite;
+  will-change:transform,opacity;
+  opacity:0;
+}
+@keyframes rise{
+  0%{transform:translate3d(0,0,0) rotate(0deg);opacity:0}
+  10%{opacity:var(--o,.5)}
+  90%{opacity:var(--o,.5)}
+  100%{transform:translate3d(var(--sway,30px),-115vh,0) rotate(var(--rot,25deg));opacity:0}
+}
+
+/* ---------- Sahne & ekranlar ---------- */
+.stage{position:relative;z-index:1}
+.screen{
+  display:none;
+  min-height:100vh;min-height:100dvh;
+  padding:max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+  align-items:center;justify-content:center;
+}
+.screen.active{display:flex}
+.screen.in{animation:screenIn .6s cubic-bezier(.2,.8,.2,1) both}
+.screen.out{animation:screenOut .38s ease-in both;pointer-events:none}
+@keyframes screenIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes screenOut{to{opacity:0;transform:translateY(-18px) scale(.96)}}
+
+.card{
+  width:100%;max-width:440px;
+  background:rgba(255,255,255,.82);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--radius);
+  box-shadow:0 20px 50px -18px rgba(238,92,130,.35), 0 2px 0 rgba(255,255,255,.8) inset;
+  padding:30px 24px 26px;
+  text-align:center;
+}
+h1{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(1.7rem, 7.2vw, 2.3rem);
+  line-height:1.18;
+  letter-spacing:-.01em;
+}
+.sub{color:var(--muted);font-size:1.05rem;margin-top:10px;font-weight:600}
+.envelope{
+  font-size:2.4rem;display:inline-block;margin-bottom:10px;
+  animation:bob 2.8s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6px) rotate(4deg)}}
+.greet{font-size:.95rem;color:var(--pink-d);font-weight:800;margin-bottom:6px;letter-spacing:.02em}
+
+/* ---------- Butonlar ---------- */
+.btn-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;margin-top:26px;min-height:64px;
+}
+.yes-wrap{transition:transform .35s cubic-bezier(.3,1.5,.5,1);transform-origin:center;position:relative;z-index:5}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:15px 26px;border-radius:999px;
+  font-weight:800;font-size:1.05rem;
+  transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.96)}
+.btn-yes{
+  color:#fff;
+  background:linear-gradient(135deg,#ff9bb5,#ee5c82);
+  box-shadow:0 10px 24px -8px rgba(238,92,130,.7);
+  animation:beat 1.8s ease-in-out infinite;
+}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.btn-no{
+  background:#fff;color:var(--muted);
+  border:1.5px solid var(--line);
+  box-shadow:0 6px 16px -10px rgba(147,111,125,.5);
+}
+.btn-no.flying{
+  position:fixed;margin:0;z-index:50;
+  transition:left .42s cubic-bezier(.3,1.3,.5,1), top .42s cubic-bezier(.3,1.3,.5,1), transform .15s;
+}
+.placeholder{display:none}
+.msg{
+  min-height:3.1em;margin-top:18px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--pink-d);font-size:1.02rem;line-height:1.35;
+}
+.msg.pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(6px)}to{opacity:1;transform:none}}
+
+.btn-primary{
+  color:#fff;background:linear-gradient(135deg,#ff9bb5,#ee5c82);
+  box-shadow:0 10px 24px -8px rgba(238,92,130,.7);
+}
+.btn-ghost{color:var(--muted);padding:15px 18px}
+.btn-wa{
+  color:#fff;background:linear-gradient(135deg,#34d27b,#1fae5b);
+  box-shadow:0 10px 24px -8px rgba(31,174,91,.6);
+  width:100%;
+}
+.btn-soft{
+  background:var(--blush);color:var(--pink-d);border:1.5px solid var(--line);width:100%;
+}
+
+/* ---------- Uçuşan kalpler ---------- */
+.fly-heart{
+  position:fixed;z-index:60;pointer-events:none;
+  font-size:var(--s,22px);
+  animation:burst 1.5s cubic-bezier(.2,.7,.3,1) forwards;
+  will-change:transform,opacity;
+}
+@keyframes burst{
+  0%{transform:translate(-50%,-50%) scale(.3);opacity:0}
+  15%{opacity:1}
+  100%{transform:translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scale(1);opacity:0}
+}
+
+/* ---------- Planlama ekranı ---------- */
+.plan-card{padding:26px 20px 22px;text-align:left}
+.plan-head{text-align:center;margin-bottom:14px}
+.plan-head h1{font-size:clamp(1.8rem,8vw,2.3rem)}
+.plan-head .sub{margin-top:6px;font-size:1rem}
+.plan-card.compact .plan-head .sub{display:none}
+.plan-card.compact .plan-head h1{font-size:1.35rem}
+
+.progress{display:flex;gap:6px;margin:16px 0 20px}
+.progress i{
+  flex:1;height:6px;border-radius:99px;background:var(--line);
+  position:relative;overflow:hidden;
+}
+.progress i::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(90deg,#ffa3bb,#ee5c82);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.3,1,.4,1);
+}
+.progress i.done::after{transform:scaleX(1)}
+
+.step{display:none}
+.step.active{display:block}
+.step.from-right{animation:slideR .45s cubic-bezier(.2,.8,.2,1) both}
+.step.from-left{animation:slideL .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes slideR{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}
+@keyframes slideL{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
+
+.q{font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1.2;margin-bottom:4px}
+.hint{color:var(--muted);font-size:.92rem;margin-bottom:16px;font-weight:600}
+
+input[type=date], input[type=time]{
+  width:100%;min-height:56px;padding:12px 16px;
+  border:1.5px solid var(--line);border-radius:18px;background:#fff;
+  font-weight:700;font-size:1.05rem;
+  outline:none;transition:border-color .2s, box-shadow .2s;
+  -webkit-appearance:none;appearance:none;
+  text-align:left;
+}
+input:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,143,171,.22)}
+.picked{margin-top:12px;font-weight:800;color:var(--pink-d);min-height:1.5em}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{
+  padding:9px 14px;border-radius:999px;
+  background:var(--blush);color:var(--pink-d);
+  border:1.5px solid var(--line);font-weight:800;font-size:.92rem;
+  transition:all .18s ease;
+}
+.chip.on{background:var(--pink-d);color:#fff;border-color:var(--pink-d);transform:scale(1.04)}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  padding:16px 8px;min-height:92px;border-radius:20px;
+  background:#fff;border:1.5px solid var(--line);
+  font-weight:800;font-size:.95rem;line-height:1.25;text-align:center;
+  transition:transform .18s cubic-bezier(.3,1.6,.5,1), border-color .2s, background .2s, box-shadow .2s;
+  position:relative;
+}
+.opt .em{font-size:1.9rem;line-height:1}
+.opt.wide{grid-column:1 / -1;flex-direction:row;gap:12px;min-height:64px}
+.opt.wide .em{font-size:1.6rem}
+.opt:active{transform:scale(.96)}
+.opt.on{
+  background:linear-gradient(180deg,#fff,#ffeef2);
+  border-color:var(--pink);
+  box-shadow:0 10px 22px -12px rgba(238,92,130,.7);
+  transform:translateY(-2px);
+}
+.opt.on::after{
+  content:"♥";position:absolute;top:6px;right:9px;color:var(--pink-d);font-size:.95rem;
+  animation:pop .35s cubic-bezier(.3,1.6,.5,1);
+}
+
+.warn{min-height:1.4em;margin-top:12px;text-align:center;font-weight:700;color:var(--pink-d);font-size:.95rem}
+.warn.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+.nav{display:flex;gap:10px;margin-top:20px;align-items:center}
+.nav .btn-primary{flex:1}
+
+/* ---------- Özet ekranı ---------- */
+.done-card h1{font-size:clamp(1.7rem,7.5vw,2.2rem)}
+.plan-list{list-style:none;margin:22px 0 4px;display:grid;gap:10px;text-align:left}
+.plan-list li{
+  display:flex;gap:14px;align-items:flex-start;
+  background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:13px 15px;
+  opacity:0;animation:screenIn .55s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.plan-list .ic{font-size:1.5rem;line-height:1.2}
+.plan-list small{display:block;color:var(--muted);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.plan-list b{display:block;font-size:1.02rem;line-height:1.3;margin-top:1px}
+.love{
+  margin:20px 4px 18px;font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:1.25rem;line-height:1.35;color:var(--pink-d);
+}
+.stack{display:grid;gap:10px}
+
+@media (max-width:380px){
+  .card{padding:26px 18px 22px}
+  .btn{padding:14px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  #bg-hearts{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="bg-hearts" aria-hidden="true"></div>
+
+<main class="stage">
+
+  <!-- ========== 1. EKRAN: DAVET ========== -->
+  <section id="s-ask" class="screen active in">
+    <div class="card">
+      <div class="envelope" aria-hidden="true">💌</div>
+      <div id="greet" class="greet" hidden></div>
+      <h1 id="ask-title">Birlikte güzel bir gün geçirelim mi? ❤️</h1>
+      <p id="ask-sub" class="sub">Sana küçük bir teklifim var...</p>
+
+      <div class="btn-row" id="btn-row">
+        <div class="yes-wrap" id="yes-wrap">
+          <button class="btn btn-yes" id="btn-yes" type="button">💖 Evet</button>
+        </div>
+        <span class="placeholder" id="no-placeholder" aria-hidden="true"></span>
+        <button class="btn btn-no" id="btn-no" type="button">🥺 Hayır</button>
+      </div>
+      <p class="msg" id="ask-msg" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- ========== 2. EKRAN: PLANLAMA ========== -->
+  <section id="s-plan" class="screen">
+    <div class="card plan-card" id="plan-card">
+      <div class="plan-head">
+        <h1>YEEEES! ❤️🥹</h1>
+        <p class="sub">Şimdi date'imizi planlayalım!</p>
+      </div>
+
+      <div class="progress" id="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+      <!-- Adım 1: tarih -->
+      <div class="step active" data-step="0">
+        <div class="q">Ne zaman buluşalım?</div>
+        <div class="hint">Bir gün seç, ben hazırım 😌</div>
+        <input type="date" id="in-date" aria-label="Tarih seç">
+        <div class="chips" id="date-chips"></div>
+        <div class="picked" id="date-picked"></div>
+      </div>
+
+      <!-- Adım 2: yemek -->
+      <div class="step" data-step="1">
+        <div class="q">Ne yiyelim?</div>
+        <div class="hint">Birden fazla seçebilirsin 🍽️</div>
+        <div class="grid" id="food-grid"></div>
+      </div>
+
+      <!-- Adım 3: aktivite -->
+      <div class="step" data-step="2">
+        <div class="q">Yemekten sonra ne yapalım?</div>
+        <div class="hint">Yine birden fazla seçebilirsin ✨</div>
+        <div class="grid" id="act-grid"></div>
+      </div>
+
+      <!-- Adım 4: saat -->
+      <div class="step" data-step="3">
+        <div class="q">Saat kaçta?</div>
+        <div class="hint">İstersen boş bırak, o zaman saati ben söylerim 🕒</div>
+        <input type="time" id="in-time" aria-label="Saat seç">
+        <div class="chips" id="time-chips"></div>
+      </div>
+
+      <div class="warn" id="warn" aria-live="polite"></div>
+
+      <div class="nav">
+        <button class="btn btn-ghost" id="btn-back" type="button" hidden>← Geri</button>
+        <button class="btn btn-primary" id="btn-next" type="button">Devam →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. EKRAN: ÖZET ========== -->
+  <section id="s-done" class="screen">
+    <div class="card done-card">
+      <div class="envelope" aria-hidden="true">💞</div>
+      <h1>Date planımız hazır! ❤️</h1>
+      <ul class="plan-list" id="plan-list"></ul>
+      <p class="love">Şimdi tek yapmamız gereken o günü beklemek. ❤️</p>
+      <div class="stack">
+        <button class="btn btn-wa" id="btn-wa" type="button">💬 Planı WhatsApp'tan gönder</button>
+        <button class="btn btn-soft" id="btn-edit" type="button">✏️ Planı değiştir</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ================= Yardımcılar ================= */
+  const $  = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+  const rand = (a,b) => Math.random()*(b-a)+a;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ================= Arka plan kalpleri ================= */
+  (function bgHearts(){
+    if(reduceMotion) return;
+    const box = $('#bg-hearts');
+    const colors = ['#ff9bb5','#ffb7c9','#ffc9d6','#f77fa0','#ffd0a8'];
+    const count = window.innerWidth < 600 ? 12 : 20;
+    const frag = document.createDocumentFragment();
+    for(let i=0;i<count;i++){
+      const s = document.createElement('span');
+      s.textContent = '♥';
+      s.style.left = rand(0,100)+'%';
+      s.style.fontSize = rand(14,34)+'px';
+      s.style.color = colors[i % colors.length];
+      s.style.animationDuration = rand(13,26)+'s';
+      s.style.animationDelay = (-rand(0,26))+'s';
+      s.style.setProperty('--o', rand(.25,.55).toFixed(2));
+      s.style.setProperty('--sway', rand(-60,60)+'px');
+      s.style.setProperty('--rot', rand(-30,30)+'deg');
+      frag.appendChild(s);
+    }
+    box.appendChild(frag);
+  })();
+
+  /* ================= Kalp patlaması ================= */
+  const burstEmojis = ['💖','💗','💕','❤️','💘','✨'];
+  function burst(x, y, n){
+    if(reduceMotion) return;
+    for(let i=0;i<n;i++){
+      const h = document.createElement('span');
+      h.className = 'fly-heart';
+      h.textContent = burstEmojis[Math.floor(Math.random()*burstEmojis.length)];
+      h.style.left = x+'px';
+      h.style.top  = y+'px';
+      h.style.setProperty('--s', rand(18,34)+'px');
+      const ang = rand(-Math.PI, 0);          // yukarı doğru yelpaze
+      const dist = rand(90,230);
+      h.style.setProperty('--dx', Math.cos(ang)*dist+'px');
+      h.style.setProperty('--dy', (Math.sin(ang)*dist - rand(20,80))+'px');
+      h.style.setProperty('--rot', rand(-40,40)+'deg');
+      h.style.animationDelay = rand(0,.25)+'s';
+      h.addEventListener('animationend', () => h.remove());
+      document.body.appendChild(h);
+    }
+  }
+  function burstFrom(el, n){
+    const r = el.getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height/2, n);
+  }
+
+  /* ================= Ekran geçişleri ================= */
+  function showScreen(id){
+    const cur = $('.screen.active');
+    const next = $(id);
+    if(cur === next) return;
+    const go = () => {
+      if(cur){ cur.classList.remove('active','out','in'); }
+      next.classList.add('active','in');
+      window.scrollTo(0,0);
+    };
+    if(cur && !reduceMotion){
+      cur.classList.add('out');
+      setTimeout(go, 360);
+    } else go();
+  }
+
+  /* ================= İlk ekran ================= */
+  if(CONFIG.HER_NAME && CONFIG.HER_NAME.trim()){
+    const g = $('#greet');
+    g.textContent = 'Hey ' + CONFIG.HER_NAME.trim() + ' 🌸';
+    g.hidden = false;
+  }
+
+  const yesBtn  = $('#btn-yes');
+  const yesWrap = $('#yes-wrap');
+  const noBtn   = $('#btn-no');
+  const holder  = $('#no-placeholder');
+  const msgEl   = $('#ask-msg');
+
+  const messages = [
+    "Emin misin? 🥹",
+    "Bence bir daha düşün...",
+    "Bu buton bile bizim buluşmamızı istiyor ❤️",
+    "Kaçmaaa 😭",
+    "Yanlış buton o 👀",
+    "Evet butonu büyüdü bak, seni bekliyor 💖",
+    "Bu buton bozuk galiba 🥲",
+    "Söz, sıkılmayacaksın 🤞",
+    "Tatlıyı ben ısmarlıyorum 🍰",
+    "Parmağın mı kaydı acaba? 😌",
+    "Hadi ama, çok güzel olacak ✨",
+    "Bu buton pes etmiyor, sen de etme 😭"
+  ];
+  let msgIdx = 0, lastMsg = -1;
+  function nextMessage(){
+    let t;
+    if(msgIdx < messages.length){ t = messages[msgIdx++]; }
+    else {
+      let i; do{ i = Math.floor(Math.random()*messages.length); }while(i === lastMsg);
+      t = messages[i]; lastMsg = i;
+    }
+    msgEl.textContent = t;
+    msgEl.classList.remove('pop'); void msgEl.offsetWidth; msgEl.classList.add('pop');
+  }
+
+  let dodges = 0, detached = false, lastDodge = 0, yesScale = 1;
+  const MARGIN = 12;
+
+  function obstacles(extraScale){
+    const list = [];
+    ['#ask-title','#ask-sub','#ask-msg','.envelope','#greet'].forEach(sel => {
+      const el = $(sel);
+      if(el && !el.hidden) list.push(el.getBoundingClientRect());
+    });
+    // Evet butonunun (büyümüş hâlinin) alanı
+    const yr = yesWrap.getBoundingClientRect();
+    const cx = yr.left + yr.width/2, cy = yr.top + yr.height/2;
+    const w = yesWrap.offsetWidth * extraScale, h = yesWrap.offsetHeight * extraScale;
+    list.push({left:cx-w/2, top:cy-h/2, right:cx+w/2, bottom:cy+h/2});
+    return list;
+  }
+  function overlap(a, b, pad){
+    const x = Math.min(a.right, b.right + pad) - Math.max(a.left, b.left - pad);
+    const y = Math.min(a.bottom, b.bottom + pad) - Math.max(a.top, b.top - pad);
+    return (x > 0 && y > 0) ? x*y : 0;
+  }
+
+  function pickSpot(w, h){
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const maxX = Math.max(MARGIN, vw - w - MARGIN);
+    const maxY = Math.max(MARGIN, vh - h - MARGIN);
+    const obs = obstacles(yesScale);
+    const curX = parseFloat(noBtn.style.left) || 0;
+    const curY = parseFloat(noBtn.style.top) || 0;
+    let best = null, bestScore = Infinity;
+    for(let i=0;i<80;i++){
+      const x = rand(MARGIN, maxX), y = rand(MARGIN, maxY);
+      const box = {left:x, top:y, right:x+w, bottom:y+h};
+      let score = 0;
+      obs.forEach(o => score += overlap(box, o, 12));
+      const dist = Math.hypot(x-curX, y-curY);
+      if(dist < 110) score += 5000;          // çok yakına kaçmasın
+      if(score < bestScore){ bestScore = score; best = {x,y}; }
+      if(score === 0) break;
+    }
+    return best || {x:MARGIN, y:MARGIN};
+  }
+
+  function dodge(){
+    const now = Date.now();
+    if(now - lastDodge < 260) return;
+    lastDodge = now;
+    dodges++;
+
+    // İlk kaçışta butonu body'ye taşı (fixed pozisyon için) ve yerine boşluk bırak
+    if(!detached){
+      const r = noBtn.getBoundingClientRect();
+      holder.style.display = 'inline-block';
+      holder.style.width = r.width + 'px';
+      holder.style.height = r.height + 'px';
+      noBtn.classList.add('flying');
+      noBtn.style.left = r.left + 'px';
+      noBtn.style.top  = r.top + 'px';
+      document.body.appendChild(noBtn);
+      void noBtn.offsetWidth;
+      detached = true;
+    }
+
+    // Evet butonu büyüsün (sınırlı)
+    yesScale = Math.min(1 + dodges * 0.1, 1.65);
+    yesWrap.style.transform = 'scale(' + yesScale + ')';
+
+    const w = noBtn.offsetWidth, h = noBtn.offsetHeight;
+    const spot = pickSpot(w, h);
+    noBtn.style.left = spot.x + 'px';
+    noBtn.style.top  = spot.y + 'px';
+
+    nextMessage();
+
+    if(dodges >= 3 && dodges % 2 === 1){
+      burstFrom(yesBtn, 7);
+    }
+  }
+
+  // Fare yaklaşınca / üstüne gelince
+  noBtn.addEventListener('pointerenter', e => { if(e.pointerType === 'mouse') dodge(); });
+  document.addEventListener('pointermove', e => {
+    if(!detached && e.pointerType !== 'mouse') return;
+    if(e.pointerType !== 'mouse') return;
+    const r = noBtn.getBoundingClientRect();
+    const near = 60;
+    if(e.clientX > r.left-near && e.clientX < r.right+near && e.clientY > r.top-near && e.clientY < r.bottom+near){
+      dodge();
+    }
+  }, {passive:true});
+  // Dokunma / tıklama
+  noBtn.addEventListener('pointerdown', e => { e.preventDefault(); dodge(); });
+  noBtn.addEventListener('touchstart', e => { e.preventDefault(); dodge(); }, {passive:false});
+  noBtn.addEventListener('click', e => { e.preventDefault(); dodge(); });
+  noBtn.addEventListener('focus', () => { if(dodges > 0) dodge(); });
+
+  // Ekran boyutu değişirse buton ekran dışında kalmasın
+  window.addEventListener('resize', () => {
+    if(!detached) return;
+    const w = noBtn.offsetWidth, h = noBtn.offsetHeight;
+    const maxX = Math.max(MARGIN, window.innerWidth - w - MARGIN);
+    const maxY = Math.max(MARGIN, window.innerHeight - h - MARGIN);
+    noBtn.style.left = Math.min(Math.max(MARGIN, parseFloat(noBtn.style.left)||0), maxX) + 'px';
+    noBtn.style.top  = Math.min(Math.max(MARGIN, parseFloat(noBtn.style.top)||0), maxY) + 'px';
+  });
+
+  // EVET
+  yesBtn.addEventListener('click', () => {
+    burstFrom(yesBtn, 22);
+    setTimeout(() => burst(window.innerWidth/2, window.innerHeight*0.6, 18), 200);
+    noBtn.style.transition = 'opacity .25s';
+    noBtn.style.opacity = '0';
+    noBtn.style.pointerEvents = 'none';
+    setTimeout(() => { noBtn.remove(); }, 300);
+    showScreen('#s-plan');
+    setTimeout(() => burst(window.innerWidth/2, window.innerHeight*0.35, 14), 700);
+  });
+
+  /* ================= Planlama ================= */
+  const foods = [
+    {id:'italian',  em:'🍝', label:'İtalyan'},
+    {id:'sushi',    em:'🍣', label:'Sushi'},
+    {id:'burger',   em:'🍔', label:'Burger'},
+    {id:'pizza',    em:'🍕', label:'Pizza'},
+    {id:'steak',    em:'🥩', label:'Steak'},
+    {id:'coffee',   em:'☕', label:'Kahve & tatlı'},
+    {id:'surprise', em:'🤔', label:'Sen seç, bana sürpriz yap', wide:true, exclusive:true, sum:'Sürpriz yap, sen seç 🤔'}
+  ];
+  const acts = [
+    {id:'movie',  em:'🎬', label:'Film'},
+    {id:'beach',  em:'🌊', label:'Sahilde yürüyüş'},
+    {id:'coffee', em:'☕', label:'Kahve içelim'},
+    {id:'bowl',   em:'🎳', label:'Bowling'},
+    {id:'stroll', em:'🌃', label:'Biraz gezelim'},
+    {id:'any',    em:'❤️', label:'Seninle olduğum sürece fark etmez', wide:true, exclusive:true, sum:'Seninle olduğum sürece fark etmez ❤️'}
+  ];
+
+  const state = { date:'', time:'', food:new Set(), act:new Set() };
+
+  function renderGrid(container, items, set){
+    container.innerHTML = '';
+    items.forEach(it => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'opt' + (it.wide ? ' wide' : '');
+      b.setAttribute('aria-pressed','false');
+      b.innerHTML = '<span class="em">'+it.em+'</span><span>'+it.label+'</span>';
+      b.addEventListener('click', () => {
+        if(set.has(it.id)){ set.delete(it.id); }
+        else{
+          if(it.exclusive){ set.clear(); }
+          else{ items.filter(x => x.exclusive).forEach(x => set.delete(x.id)); }
+          set.add(it.id);
+        }
+        $$('.opt', container).forEach((el, i) => {
+          const on = set.has(items[i].id);
+          el.classList.toggle('on', on);
+          el.setAttribute('aria-pressed', on);
+        });
+        clearWarn();
+        const r = b.getBoundingClientRect();
+        if(set.has(it.id)) burst(r.left + r.width/2, r.top + 10, 3);
+      });
+      container.appendChild(b);
+    });
+  }
+  renderGrid($('#food-grid'), foods, state.food);
+  renderGrid($('#act-grid'),  acts,  state.act);
+
+  /* --- Tarih --- */
+  const inDate = $('#in-date');
+  const pad = n => String(n).padStart(2,'0');
+  const toISO = d => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const fromISO = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+  const fmtDate = s => fromISO(s).toLocaleDateString('tr-TR', {day:'numeric', month:'long', year:'numeric', weekday:'long'});
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  inDate.min = toISO(today);
+
+  function setDate(iso){
+    state.date = iso;
+    inDate.value = iso;
+    $('#date-picked').textContent = iso ? '📅 ' + fmtDate(iso) : '';
+    $$('#date-chips .chip').forEach(c => c.classList.toggle('on', c.dataset.v === iso));
+    clearWarn();
+  }
+  inDate.addEventListener('change', () => setDate(inDate.value));
+  inDate.addEventListener('input',  () => setDate(inDate.value));
+
+  (function dateChips(){
+    const tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+    const daysUntil = dow => (dow - today.getDay() + 7) % 7;
+    const sat = new Date(today); sat.setDate(today.getDate() + daysUntil(6));
+    const sun = new Date(today); sun.setDate(today.getDate() + daysUntil(0));
+    const items = [
+      ['Yarın', tomorrow],
+      ['Cumartesi', sat],
+      ['Pazar', sun]
+    ];
+    const seen = new Set();
+    items.forEach(([label, d]) => {
+      const iso = toISO(d);
+      if(seen.has(iso)) return; seen.add(iso);
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.dataset.v = iso;
+      b.textContent = label + ' · ' + d.getDate() + ' ' + d.toLocaleDateString('tr-TR',{month:'short'});
+      b.addEventListener('click', () => setDate(iso));
+      $('#date-chips').appendChild(b);
+    });
+  })();
+
+  /* --- Saat --- */
+  const inTime = $('#in-time');
+  const timeOpts = [
+    ['Öğle 12:00','12:00'], ['Öğleden sonra 15:00','15:00'],
+    ['Akşam 18:00','18:00'], ['Akşam 19:30','19:30'], ['Gece 21:00','21:00'],
+    ['Sen karar ver 😌','']
+  ];
+  function syncTimeChips(){
+    $$('#time-chips .chip').forEach(c => c.classList.toggle('on', c.dataset.v === state.time));
+  }
+  timeOpts.forEach(([label, v]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.dataset.v = v; b.textContent = label;
+    b.addEventListener('click', () => {
+      state.time = v; inTime.value = v; syncTimeChips();
+    });
+    $('#time-chips').appendChild(b);
+  });
+  inTime.addEventListener('input', () => { state.time = inTime.value; syncTimeChips(); });
+  inTime.addEventListener('change', () => { state.time = inTime.value; syncTimeChips(); });
+
+  /* --- Sihirbaz --- */
+  const steps = $$('.step');
+  const bars  = $$('#progress i');
+  const btnNext = $('#btn-next');
+  const btnBack = $('#btn-back');
+  const warnEl  = $('#warn');
+  const planCard = $('#plan-card');
+  let cur = 0;
+
+  function clearWarn(){ warnEl.textContent = ''; }
+  function warn(t){
+    warnEl.textContent = t;
+    warnEl.classList.remove('shake'); void warnEl.offsetWidth; warnEl.classList.add('shake');
+  }
+
+  function goStep(n, dir){
+    steps.forEach((s, i) => {
+      s.classList.remove('active','from-right','from-left');
+      if(i === n){
+        s.classList.add('active', dir === 'back' ? 'from-left' : 'from-right');
+      }
+    });
+    cur = n;
+    bars.forEach((b, i) => b.classList.toggle('done', i <= n));
+    btnBack.hidden = (n === 0);
+    btnNext.textContent = (n === steps.length-1) ? "Date'imizi planla ❤️" : 'Devam →';
+    planCard.classList.toggle('compact', n > 0);
+    clearWarn();
+  }
+
+  function validate(){
+    if(cur === 0 && !state.date){ warn('Önce bir gün seç lütfen 🥺'); return false; }
+    if(cur === 1 && state.food.size === 0){ warn('En az bir tane seç (ya da sürpriz yap 😌)'); return false; }
+    if(cur === 2 && state.act.size === 0){ warn('Bir tane de aktivite seç, olur mu? 🥹'); return false; }
+    return true;
+  }
+
+  btnNext.addEventListener('click', () => {
+    if(!validate()) return;
+    if(cur < steps.length-1){ goStep(cur+1, 'next'); burstFrom(btnNext, 4); }
+    else { finish(); }
+  });
+  btnBack.addEventListener('click', () => { if(cur > 0) goStep(cur-1, 'back'); });
+  goStep(0, 'next');
+
+  /* ================= Özet ================= */
+  function listText(items, set){
+    const chosen = items.filter(i => set.has(i.id));
+    if(chosen.length === 1 && chosen[0].sum) return chosen[0].sum;
+    return chosen.map(i => i.em + ' ' + i.label).join(', ');
+  }
+  function plainTimeText(){
+    return state.time ? state.time : 'Saati sana bırakıyorum 😌';
+  }
+
+  function finish(){
+    const items = [
+      ['📅','Tarih', fmtDate(state.date)],
+      ['🕒','Saat',  plainTimeText()],
+      ['🍽️','Yemek', listText(foods, state.food)],
+      ['✨','Aktivite', listText(acts, state.act)]
+    ];
+    const ul = $('#plan-list');
+    ul.innerHTML = '';
+    items.forEach(([ic, k, v], i) => {
+      const li = document.createElement('li');
+      li.style.animationDelay = (0.35 + i*0.14) + 's';
+      li.innerHTML = '<span class="ic"></span><div><small></small><b></b></div>';
+      li.querySelector('.ic').textContent = ic;
+      li.querySelector('small').textContent = k;
+      li.querySelector('b').textContent = v;
+      ul.appendChild(li);
+    });
+    showScreen('#s-done');
+    setTimeout(() => { burst(window.innerWidth/2, window.innerHeight*0.45, 26); }, 450);
+    setTimeout(() => { burst(window.innerWidth*0.25, window.innerHeight*0.6, 10); burst(window.innerWidth*0.75, window.innerHeight*0.6, 10); }, 900);
+  }
+
+  /* ================= WhatsApp ================= */
+  function buildWhatsAppMessage(){
+    return [
+      'Evet dedim! 💖',
+      'Date planımız hazır:',
+      '',
+      '📅 Tarih: ' + fmtDate(state.date),
+      '🕒 Saat: ' + plainTimeText(),
+      '🍽️ Yemek: ' + listText(foods, state.food),
+      '✨ Aktivite: ' + listText(acts, state.act),
+      '',
+      'Günü sabırsızlıkla bekliyorum ❤️'
+    ].join('\n');
+  }
+  $('#btn-wa').addEventListener('click', () => {
+    const phone = String(CONFIG.PHONE || '').replace(/\D/g,'');
+    const base = phone ? 'https://wa.me/' + phone : 'https://wa.me/';
+    const url = base + '?text=' + encodeURIComponent(buildWhatsAppMessage());
+    window.open(url, '_blank', 'noopener');
+  });
+
+  $('#btn-edit').addEventListener('click', () => {
+    goStep(0, 'back');
+    showScreen('#s-plan');
+  });
+})();
+</script>
+</body>
+</html>
